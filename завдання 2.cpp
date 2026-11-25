@@ -1,26 +1,22 @@
-#include <iostream>
-using namespace std;
+#include <stdio.h>
 
-int main() {
+int main(void) {
     const int N = 10;
-    char arr1[N], arr2[N], arr3[N];
-    int k = 0; // лічильник елементів третього масиву
+    char arr1[10], arr2[10], arr3[10];
+    int k = 0;
 
-    // Ініціалізація перших двох масивів
     for (int i = 0; i < N; i++) {
-        arr1[i] = static_cast<char>(5 * i + 30);
-        arr2[i] = static_cast<char>(60 - 5 * i);
+        arr1[i] = (char)(5 * i + 30);
+        arr2[i] = (char)(60 - 5 * i);
     }
 
-    // Пошук спільних значень для третього масиву
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
             if (arr1[i] == arr2[j]) {
-                // Перевірка, щоб не дублювати вже знайдені символи
-                bool exists = false;
+                int exists = 0;
                 for (int m = 0; m < k; m++) {
                     if (arr3[m] == arr1[i]) {
-                        exists = true;
+                        exists = 1;
                         break;
                     }
                 }
@@ -31,25 +27,24 @@ int main() {
         }
     }
 
-    // Обчислення добутку кодів < 40
     long long product = 1;
-    bool found = false;
+    int found = 0;
 
-    cout << "Коди елементів 3-го масиву: ";
+    printf("Коди елементів 3-го масиву: ");
     for (int i = 0; i < k; i++) {
-        int code = static_cast<unsigned char>(arr3[i]);
-        cout << code << " ";
+        int code = (unsigned char)arr3[i];
+        printf("%d ", code);
         if (code < 40) {
             product *= code;
-            found = true;
+            found = 1;
         }
     }
-    cout << endl;
+    printf("\n");
 
     if (found) {
-        cout << "Добуток кодів менше 40: " << product << endl;
+        printf("Добуток кодів менше 40: %lld\n", product);
     } else {
-        cout << "Елементів з кодом менше 40 не знайдено." << endl;
+        printf("Елементів з кодом менше 40 не знайдено.\n");
     }
 
     return 0;
