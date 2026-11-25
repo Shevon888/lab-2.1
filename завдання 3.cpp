@@ -1,32 +1,31 @@
-#include <iostream>
-using namespace std;
+#include <stdio.h>
 
-int main() {
+int main(void) {
     const int ROWS = 4;
     const int COLS = 5;
 
-    float matrix[ROWS][COLS] = {
-        {1.2f, 2.5f, -1.0f, 4.0f, 3.3f},
-        {5.0f, 0.5f, 2.5f, 1.0f, -2.0f},
-        {3.1f, 3.2f, 3.3f, 3.4f, 3.5f},
-        {-4.0f, 2.0f, 6.0f, 1.5f, 0.5f}
+    double matrix[4][5] = {
+        {1.2,  2.5, -1.0,  4.0,  3.3},
+        {5.0,  0.5,  2.5,  1.0, -2.0},
+        {3.1,  3.2,  3.3,  3.4,  3.5},
+        {-4.0, 2.0,  6.0,  1.5,  0.5}
     };
 
-    float rowSums[ROWS];
+    double row_sums[4];
 
     for (int i = 0; i < ROWS; i++) {
-        float sum = 0.0f;
+        double sum = 0.0;
         for (int j = 0; j < COLS; j++) {
             sum += matrix[i][j];
         }
-        rowSums[i] = sum;
+        row_sums[i] = sum;
     }
 
-    cout << "Суми елементів по рядках: ";
+    printf("Суми елементів по рядках: ");
     for (int i = 0; i < ROWS; i++) {
-        cout << rowSums[i] << " ";
+        printf("%.2f ", row_sums[i]);
     }
-    cout << endl;
+    printf("\n");
 
     return 0;
 }
