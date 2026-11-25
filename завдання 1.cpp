@@ -4,7 +4,6 @@ int main(void) {
     const int N = 6;
     double arr[6];
 
-    /* 1–2. Опис та ініціювання за формулами варіанта */
     for (int i = 0; i < N; i++) {
         if (i % 2 == 0) {
             arr[i] = 15.5 - i;
@@ -19,7 +18,6 @@ int main(void) {
     }
     printf("\n");
 
-    /* 3. Сортування бульбашкою за спаданням */
     for (int i = 0; i < N - 1; i++) {
         for (int j = 0; j < N - i - 1; j++) {
             if (arr[j] < arr[j + 1]) {
