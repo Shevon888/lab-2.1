@@ -1,37 +1,40 @@
-#include <iostream>
-using namespace std;
+#include <stdio.h>
 
-int main() {
+int main(void) {
     const int N = 6;
-    float arr[N];
+    double arr[6];
 
-    // Ініціалізація за формулами варіанта
+    /* 1–2. Опис та ініціювання за формулами варіанта */
     for (int i = 0; i < N; i++) {
         if (i % 2 == 0) {
-            arr[i] = 15.5f - i;
+            arr[i] = 15.5 - i;
         } else {
-            arr[i] = 7.2f + i;
+            arr[i] = 7.2 + i;
         }
     }
 
-    cout << "Початковий масив: ";
-    for (int i = 0; i < N; i++) cout << arr[i] << " ";
-    cout << endl;
+    printf("Початковий масив: ");
+    for (int i = 0; i < N; i++) {
+        printf("%.2f ", arr[i]);
+    }
+    printf("\n");
 
-    // Сортування бульбашкою за спаданням
+    /* 3. Сортування бульбашкою за спаданням */
     for (int i = 0; i < N - 1; i++) {
         for (int j = 0; j < N - i - 1; j++) {
             if (arr[j] < arr[j + 1]) {
-                float temp = arr[j];
+                double temp = arr[j];
                 arr[j] = arr[j + 1];
                 arr[j + 1] = temp;
             }
         }
     }
 
-    cout << "Відсортований за спаданням: ";
-    for (int i = 0; i < N; i++) cout << arr[i] << " ";
-    cout << endl;
+    printf("Відсортований за спаданням: ");
+    for (int i = 0; i < N; i++) {
+        printf("%.2f ", arr[i]);
+    }
+    printf("\n");
 
     return 0;
 }
